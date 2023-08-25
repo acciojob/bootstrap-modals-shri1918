@@ -36,6 +36,20 @@
     openModalButton.addEventListener('click', () => {
         newtonModal.show();
     });
+	describe('Modal Test', () => {
+  it('should open the modal', () => {
+    cy.visit(baseUrl + '/main.html');
+
+    cy.get('#open-modal')
+      .should('have.attr', 'data-bs-toggle', 'modal')
+      .and('have.attr', 'data-bs-target', '#newton-modal')
+      .click();
+
+    // Now check if the modal is visible
+    cy.get('#newton-modal').should('be.visible');
+  });
+});
+
 </script>
 </body>
 </html>
